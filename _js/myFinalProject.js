@@ -1,7 +1,7 @@
 //lovingly stolen from http://www.lostdecadegames.com/how-to-make-a-simple-html5-canvas-game/
 //...and modified heavily
 
-//################ SETUP CANVAS ##################
+//------------------ SETUP CANVAS ------------------
 //create the canvas element
 var canvas = document.createElement("canvas");
 //takes canvas gets its context and puts that value in the ctx variable
