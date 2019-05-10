@@ -12,7 +12,7 @@ canvas.height = 450;
 //appends the canvas to the document object
 document.body.appendChild(canvas);
 
-//################ Global variables ##################
+//------------------ Global variables -----------------
 var playing = true;
 var monstersCaught = 0;
 var allMonsters = [];
@@ -25,7 +25,7 @@ var bgX = 0;
 var gameOverTimer;
 var xProgress = 0;
 
-//################ Setting up images ##################
+//------------------ Setting up images ------------------
 
 // sprite sheet
 var imgReady = false;
@@ -97,7 +97,7 @@ explodeImage.onload = function () {
 explodeImage.src = "_images/explode.png";
 
 
-//################ Game Objects ##################
+//------------------ Game Objects ------------------
 var hero = {
 	hp: 50,
 	width: 32,
@@ -177,7 +177,7 @@ var ground = new Platform(0,canvas.height-0,canvas.width, 0,"ground");
 var myFirstPillar = new Pillar(620, 370, 50, 50, "normal");
 console.log("here are the pillars... " + allPillars);
 
-//################ Functions ##################
+//------------------ Functions ------------------
 var reset = function () {
 	hero.x = canvas.width/2;
 	hero.y = canvas.height/2;
@@ -266,7 +266,7 @@ function  pillarWave() {
 			console.log(allPillars);
 	}
 
-// ########## this is where animation magic happens ########
+// ------------------ this is where animation magic happens ------------------
 function drawFrame(frameX, frameY, canvasX, canvasY) {
 	ctx.drawImage(img, frameX * hero.width, frameY * hero.height, hero.width, hero.height, canvasX, canvasY, hero.width, hero.height);
 }
@@ -288,7 +288,7 @@ function step(delay) {
 	}
 }
 
-//################ Setup Keyboard controls ##################
+//------------------ Setup Keyboard controls ------------------
 
 var keysDown = {};
 
@@ -300,7 +300,7 @@ addEventListener("keyup", function (e) {
 	delete keysDown[e.key];
 }, false);
 
-// #################### get user input #########################
+// ------------------ get user input ------------------
 
 var input = function (modifier) {
 	// checks for user input
@@ -339,7 +339,7 @@ var input = function (modifier) {
 	}
 };
 
-// ##################### Update #####################
+// ------------------ Update ------------------
 var update = function (modifier) {
 	xProgress += hero.velX;
 
@@ -423,7 +423,7 @@ var update = function (modifier) {
 		allMonsters[monster].update();
 	}
 
-	// ################### Collision Detection ########################
+	// ------------------ Collision Detection ------------------
 	for (var plat in allPlatforms) {
 		if (allPlatforms[plat].type == "moving") {
 			allPlatforms[plat].x += allPlatforms[plat].velX*allPlatforms[plat].direction;
@@ -482,7 +482,7 @@ var update = function (modifier) {
 	}
 };
 
-// ################# Render/Draw section ######################
+// ------------------ Render/Draw section ------------------
 var render = function (modifier) {
 	//render background first
 
@@ -534,7 +534,7 @@ var render = function (modifier) {
 	ctx.fillText("Monsters: " + allMonsters.length, 150, 32);
 };
 
-// ##################### Main loop function ################
+// ------------------ Main loop function ------------------
 var main = function () {
 	now = Date.now();
     delta = now - then;
